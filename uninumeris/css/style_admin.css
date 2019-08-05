@@ -77,4 +77,9 @@ body
     color: white;
   }
  
-  
+  /***************************************Agir sur le formulaire uploder***************************************************/
+
+  .form-data
+  {
+    margin-top: 250px;
+  }

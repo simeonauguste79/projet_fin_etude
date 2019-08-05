@@ -33,11 +33,26 @@ if ($_POST) {
     if (empty($_POST['linkArticle']) || !preg_match('#^(http|https)://[\w-]+[\w.-]+\.[a-zA-Z]{2,6}#i', $_POST['linkArticle'])) {
         $msgLinkArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre URL valide</span>';
     } // FIN if (empty($_POST['linkArticle'])
-
+// ********************************************************************************************************************
     if (empty($_POST['photoArticle'])) {
         $msgPhotoArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre image valide</span>';
     }  // FIN if (empty($_POST['photo'])
 
+    /***************************INSERTION DE PHOTO*******************************/
+    if (!empty($_FILES['photo']['name'])) // on vérifie que l'indice 'name' dans la superglobale $_FILES n'est pas vide, cela veut dire que l'on a bien uploader une photo
+
+            {
+                $nom_photo = $reference . '-' . $_FILES['photo']['name']; // on redéfinit le nom de la photo en concaténant la référence saisi dans le formulaire avec le nom de la photo
+                echo $nom_photo . '<br>';
+                $photo_bdd = URL . "photo/$nom_photo"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
+                echo $photo_bdd . '<br>';
+                $photo_dossier = RACINE_SITE . "photo/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
+                echo $photo_dossier . '<br>';
+                copy($_FILES['photo']['tmp_name'], $photo_dossier); // copy() est une fonction prédéfinie qui permet de copier la photo dans le dossier photo. arguments: copy(nom_temporaire_photo, chemin de destinati
+
+
+    /***************************Fin D'INSERTION DE PHOTO*******************************/
+// ********************************************************************************************************************
     if (empty($_POST['content'])) {
         $msgContentError.= '<span class="text-danger text-center"> ** Veuillez saisir votre article</span>';
     }  // FIN if (empty($_POST['content'])
@@ -52,7 +67,7 @@ if ($_POST) {
     } // FIN if (empty($_POST['fNameAuteurArt'])
 
         // verif champ email
-    if (empty($_POST['emailAuteurArt']) || !preg_match('/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/', $_POST['emailAuteurArt'])) {
+    if (empty($_POST['emailAuteurArt']) || !filter_var(FILTER_VALIDATE_EMAIL, $_POST['emailAuteurArt'])) {
         $msgEmailAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir un mail valid</span>';
     } // FIN if (empty($_POST['link'])
 
@@ -97,7 +112,7 @@ if ($_POST) {
     <!-- Lien CDN bootswatch -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous">
     <!-- Lien CSS personel -->
-    <link rel="stylesheet" href="css/style_admin.css">
+    <link rel="stylesheet" href="../css/style_admin.css">
     <title>siteDeFinDeFormation</title>
 </head>
 <body>  

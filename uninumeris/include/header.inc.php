@@ -84,6 +84,9 @@
         <a class="nav-link" href="contact.php">Contact</a>
         <!-- <a class="nav-link" href="<?= URL ?>contact.php">Contact</a> -->
       </li>
+        <!-- <a class="nav-link" href="<?= URL ?>uploader_fichier.php">Telecharger</a> -->
+        <li class="nav-item">
+        <a class="nav-link" href="uploader_fichier.php">Telecharger</a>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">

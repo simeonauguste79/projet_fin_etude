@@ -17,9 +17,8 @@ while ($article = $resultat->fetch(PDO::FETCH_ASSOC))
         $contenu.='<p class="card-text text-justify">'.$article['fNameAuteurArt'].'</p>';
         $contenu.='<p class="card-text text-justify">'.$article['lNameAuteurArt'].'</p>';
         $contenu.='<p class="card-text text-justify">'.$article['emailAuteurArt'].'</p>';
-        $contenu.='<img src="img/articles/'.$article['photoArticle'].' alt=" class="cardImage">;</p>';
-        $contenu.='<p class="target="_blank" class="read-more-button">'.$article['linkArticle'].'</p>';
-    // $contenu .=  '<a href="#" class="btn btn-outline-info">Lire</a>';
+        $contenu.='<img src="img/'.$article['photoArticle'].'" alt=" class="cardImage">;</p>';
+     $contenu .=  '<a href="'.$article["linkArticle"].'" class="btn btn-outline-info" target="_blank">Lire</a>';
       $contenu .= '</div>';
     $contenu .= '</div>';
   

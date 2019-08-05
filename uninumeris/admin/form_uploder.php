@@ -1,5 +1,15 @@
 <?php
 require_once("../include/init.inc.php");
+var_dump($_FILES);
+// if(!empty($_FILES))
+// {
+//     $file_name = $_FILES['fichier'] ['nameFile'];
+//     $nameType = $_FILES['fichier'] ['nameType'];
+//     $file_type = $_FILES['fichier'] ['type'];
+//     echo 'Nom' . $file_name;
+//     echo 'Type' . $fileType;
+//     echo 'urlFile' . $file_type;
+// }
 
 ?>
 
@@ -18,40 +28,24 @@ require_once("../include/init.inc.php");
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous">
     <!-- Lien CSS personel -->
     <link rel="stylesheet" href="../css/style_admin.css">
-    <title>siteDeFinDeFormation</title>
+    <title>Formulaire telechager</title>
 </head>
 <body>  
-    <!--Debut div container-fluid-->
-    <div class="container-fluid">
+    <div class="container">
+        <h1 class="text-center">Formulaire Telecharger</h1>
+        <form class="form-data col-md-5 offset-3" method="POST" enctype="multipart/form-data">
         
-<div id="container">
+        
+
+            <input type="file" class="btn btn-primary btn-mg btn-block col-md-5 offset-4 rounded-pill border border-primary hover"  name="fichier" placeholder="choisir fichier">
+
+            <input type="submit" class="btn btn-secondary btn-mg btn-block col-md-5 offset-4 rounded-pill border border-primary hover" value="envoyer le fichier">
+            
+        </form>
+    </div>
     
-
-<h1 class="display-4 text-center"> Liste des articles</h1>
-        <a href="accueil_admin.php" class="return" title="retour"><i
-                class="fas fa-hand-point-left fa-2x text-dark"></i></a>
-        <a class="offset-11 mb-5 btn btn-outline-dark" href="form_article.php" title="ajouter un article"><i
-                class="fas fa-pencil-alt fa-2x"></i></a>
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col-md-2" class="text-center">N° client</th>
-                    <th scope="col-md-2" class="text-center">Titre</th>
-                    <th scope="col-md-2" class="text-center">Contenu</th>
-                    <th scope="col-md-2" class="text-center">Photo</th>
-                    <th scope="col-md-2" class="text-center">Lien</th>
-                    <th colspan="2">Action</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <?php echo $contenu; ?>
-
-            </tbody>
-        </table>
-
-
-</div>
+        
+            
 <!-- Lien CDN JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -62,6 +56,6 @@ require_once("../include/init.inc.php");
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
-</div>
+
 </body>
 </html>   
