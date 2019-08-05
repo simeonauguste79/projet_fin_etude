@@ -1,0 +1,80 @@
+/******************************************** RESET ********************************************/
+* 
+{
+  box-sizing: border-box;
+  font: sans-serif;
+}
+
+/************************************* REGLAGES GENEREAUX *************************************/
+body 
+{
+  background: url(../img/Présentation1.jpg) no-repeat;
+  background-attachment: fixed;
+    background-size: cover;
+}
+/**********************************Page de connexion Admin ***********************************/
+
+/* titre Admin */
+#adminConnect 
+{
+    margin-top: 150px;
+    margin-left: 40%;
+    color: white;
+    border-bottom: 6px solid #4caf54;
+    margin-bottom: 5px;
+    padding: 2px 0;
+    width: 140px;
+    font-size: 60px;
+}
+
+/*Titre .adminReal */
+
+
+
+
+/***********************************************************Page Accueil Admin***********************************************************/
+
+.login_panel
+{
+    margin-left: 39%;
+    margin-bottom: 50px;
+    border-bottom: 6px solid #4caf54;
+    width: 140px;
+    font-size: 65px;
+}
+
+
+
+/***************************************************hover********************************************************************/
+
+/* hover pour les boutons "qui, séance, témoignages, blog" */
+.hover:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    color: rgb(36, 116, 190);
+    box-shadow: -2px 2px 15px 0px rgba(251, 246, 246, 0.75);
+    background-color: rgb(9, 12, 14);
+    border: 2rem #fcfeff;
+    transform: scale(1.2);
+    transition: all 0.10s ease-in-out 0s;
+  }
+
+
+  /***********************************************************btn deconnexion***************************************************************/
+  
+  /***********************************************************Form-group*********************************************************************/
+
+  .form-group
+  {
+      margin-left: 33%;
+  }
+  .form-group a 
+  {
+    text-decoration: none;
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+ 
+  

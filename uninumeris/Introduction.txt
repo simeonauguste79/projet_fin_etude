@@ -1,0 +1,74 @@
+----------------------------SITE DE FIN DE FORMATION--------------------------------
+Nom du devellopeur:
+Prenom:
+email:
+                                          ------------------------------------
+                                                 www.uninumeris.net
+                                          ------------------------------------ 
+
+
+
+www.uninumeris.netwww.deboutciv.net
+                                    
+                                    
+                                                  ------------------
+                                                   BUTS ET OBJECTIFS
+                                                  ------------------
+
+
+             
+
+                               ---------------------------------------------------------
+                                                 MISSION DU DEVELOPPEUR
+                               ---------------------------------------------------------
+ 
+                               I FICHE DU METIER 
+
+ 
+ I_ Créér un site dynamique à partir des outils pédagogiques transmis pendant notre formation qui a duré 10 mois.
+    
+    A_ FRONT-END 
+        1_ HTML pure + CSS 
+        2_ JavaScript + Jquery + Ajax....
+        3_ Boostrap
+    B_ Back 
+        1_ PHP PROCEDURAL 
+        2_ PHP POO ORIENTE OBJET 
+        3_ SYMFONY
+
+
+
+                    
+                            www.deboutciv.net
+Est un site d'actualité, d'information et de culture en ligne. 
+                    
+    A FRONT                
+    1ère Nav
+                                                  ------------------------------
+                                                            MAPPING
+                                                  ------------------------------ 
+                                                  ------------------------------
+                                                             ADMIN
+                                                  -----------------------------                     
+                                  -----------------------------------------------------------------------
+                                  IdAdmin | AdminFirstname | AdminLastname | AdminEmail | AdminPw |status    
+                                  -----------------------------------------------------------------------         
+
+        °----------------------------------------------------Accueil------------------------------------------------------------
+        |                      |                             |                         |                                       |
+                                       
+    Competences              Experience                 Formation                  Realisation                              Contact
+                          
+        |                        |                           |                         |                                       |
+     Langage                  Langage                      Langage                   Langage                             Formulaire
+
+
+
+
+                                                        -------------------------
+                                                        CONSTITUTION DES FICHIERS
+                                                        -------------------------
+
+                                                        1_Dossier Admin 
+                                                            Composer de ficheirs:
+                                                
