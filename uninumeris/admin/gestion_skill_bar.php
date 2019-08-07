@@ -3,12 +3,10 @@ require_once("../include/init.inc.php");
 require_once("../include/init.inc.php");
 /*Verification des champs du formulaire
 -> parcourir dejà la BDD et repertorier les champs à utiliser
-Table article 
-_	id_competence à ignorer 
-_title_competence -> pour le titre à mettre en anglais 
-_content_competence
-_title_competence
-_photo_competence
+Table cpLevel 
+_	id_competenceLevel à ignorer 
+_cpTitle -> pour le titre à mettre en anglais 
+_cpLevel
 */
 // Ici j'affiche les infos que récupère grâce à la methode "post" du formulaire. Ceci m'aide à voir que mon formulaire envoie bien les données saisies
 echo '<pre style="background:DarkSlateGray;color:white;" >';
@@ -16,47 +14,39 @@ var_dump($_POST);
 echo '</pre>';
 extract($_POST);
 // je créé ma variable d'affichage
-$msgtitle_competenceError = "";
-$msgcontent_competenceError = "";
-$msgphoto_competenceError = "";
+$msgcpTitleError = "";
+$msgcpLevelError = "";
 
  $contenu = "";
 // Je vérifie les champs de mon formulaire
 if ($_POST) {
 
     // Je vérifie que chaque champs n'esxistent pas ou bien qu'il ne correspondent pas à ce que j'attend. Dans ce cas un message d'erreur sera affiché.
-    if (empty($title_competence) || iconv_strlen($title_competence) < 2 || iconv_strlen($title_competence) > 100) {
-        $msgtitle_competenceError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre entre 7 et 100 caractères</span>';
-    } // FIN if (empty($_POST['title'])
+    if (empty($cpTitle) || iconv_strlen($cpTitle) < 2 || iconv_strlen($cpTitle) > 100) {
+        $msgcpTitleError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre competence entre 7 et 100 caractères</span>';
+    } // FIN if (empty($_POST['cpTitle'])
 
-// ********************************************************************************************************************
-    if (empty($_POST['photo_competence'])) {
-        $msgPhotoArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre image valide</span>';
-    }  // FIN if (empty($_POST['photo'])
 
-// ********************************************************************************************************************
-    if (empty($_POST['content_competence'])) {
-        $msgcontent_competenceError.= '<span class="text-danger text-center"> ** Veuillez saisir votre article</span>';
+    if (empty($_POST['cpLevel'])) {
+        $msgcpLevelError.= '<span class="text-danger text-center"> ** Veuillez saisir votre niveau</span>';
     }  // FIN if (empty($_POST['content'])
 
-    
     // SI VERIFIE => 
     // si Je n'ai pas de message d'erreur j'effectue l'insertion à ma BDD 
-    if (empty($msgtitle_competenceError || $msgphoto_competenceError || $msgcontent_competenceError))
+    if (empty($msgcpTitleError || $msgcpLevelError))
     {
         
         
         // a) assainissement des saisies de l'intertnaute
     foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);}
-        $requet = $bdd->prepare("INSERT INTO competence (title_competence, content_competence, photo_competence ) VALUES (:title_competence, :content_competence, :photo_competence)");
+        $requet = $bdd->prepare("INSERT INTO skill_bar (cpTitle, cpLevel ) VALUES (:cpTitle, :cpLevel)");
     
         // J'associe les les valeurs saisies dans le  formulaire avec les marqueurs de securité php (:title,:content,:link, :photo)")
-        $requet->bindParam(':title_competence', $_POST['title_competence']);
-        $requet->bindParam(':content_competence', $_POST['content_competence']);
-        $requet->bindParam(':photo_competence', $_POST['photo_competence']);
+        $requet->bindParam(':cpTitle', $_POST['cpTitle']);
+        $requet->bindParam(':cpLevel', $_POST['cpLevel']);
         // J'éxecute l'insertion en BDD
         $requet->execute();
-    } //Fin if (empty($msg_title || $msg_content || $msg_link || $msg_photo))
+    } //Fin if (empty($msgcpTitle || $msgcpLevel))
 
 } //Fin de $_POST 
 ?>
