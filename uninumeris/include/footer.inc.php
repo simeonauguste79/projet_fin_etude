@@ -103,11 +103,12 @@
       
               <!-- Facebook -->
           <ul class="nav_footer mx-auto mb-4 ">
-            <li><a href="#" class="col-md-4 btn"><img src="img/f_logo_RGB-Hex-Blue_512.png"
-                        alt="logo-facebook" class="face hover"></a></li>
-            <li><a href="#" class="col-md-4 btn"><img src="img/linkedin.png"
-                        alt="logo-linkedin" class="twit hover"></a></li>
-            <li><a href="#" class="col-md-4 btn"><img src="img/twitter.png" alt="logo-twitter" class="link hover"></a></li>
+          <!-- Facebook -->
+            <li><a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f hover"></i></a></li>
+                        <!-- Linkedin -->
+            <li><a class="px-2 fa-sm li-ic"><i class="fab fa-linkedin-in hover"></i></a></li>
+            <!-- tweter -->
+            <li><a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter hover"></i></a></li>
            </ul>
             </div>
           </div>

@@ -6,7 +6,9 @@ _ idArticle à ignorer
 _ title -> pour le titre à mettre en anglais 
 _ content
 
+
 */ 
+extract($_GET);
 // Variable d'affichage 
 $art = "";
 
@@ -23,26 +25,25 @@ while($article=$resultat->fetch(PDO::FETCH_ASSOC)){
       $art.='<td>'.$article['content'].'</td>';
       $art.='<td>'.$article['dateArt'].'</td>';
       $art.='<td>'.$article['fNameAuteurArt'].'</td>';
-      $art.='<td>'.$article['emailAuteurArt'].'</td>';
-      $art.='<td>'.$article['photoArticle'].'</td>';
+      $art.='<td>'.$article['lNameAuteurArt'].'</td>';
+      $art.='<td><img src="img/'.$article['photoArticle'].'" alt="" class="card-img-top"></td>';
       $art.='<td>'.$article['linkArticle'].'</td>';
+      $art.='<td><a href="form_article.php?action=modifier&id='.$article['idArticle'].'"><i class="far fa-edit"></i></a></td>';
+      $art.='<td><a href="?action=supprimer&id='.$article['idArticle'].'"><i class="fas fa-trash"></i></a></td>';
     $art.='</tr>';
 }
-// ---------------SUPPRESSION DE PRODUIT-----------------------
-    // Si mon action existe et que l'action est egale à la suppression et mon Id existe
-    // je lance ma requete de suppression, il faut if (isset($_GET['action'])+ && $_GET['action'] == 'suppression' && isset($_GET['id']))
-// if (isset($_GET['action']) && $_GET['action'] == 'suppression' && isset($_GET['id'])) {
+// ---------------SUPPRESSION DE ARTICLE--------------------------------------------------------------------------
 
-    // $article_delete = $bdd->prepare("DELETE FROM articles WHERE idArticle = :idArticle");
-    // Je recupere l'Id qui se trouve dans l'URL
-    // $article_delete->bindValue(':idArticle', $_GET['id'], PDO::PARAM_INT);
+if(isset($action) && $action == 'supprimer' && isset($id) && $id == $id){
+    $article_delete = $bdd->prepare("DELETE FROM article WHERE idArticle = :idArticle");
+    $article_delete->bindValue(':idArticle', $_GET['id'], PDO::PARAM_INT);
+    $article_delete->execute();
 
-    // echo 'suppression article';
+}
 
-    // $article_delete->execute();
 
-    // $_GET['action'] = 'affichage'; // on rédirige vers l'affichage des produits
-// }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -65,29 +66,30 @@ while($article=$resultat->fetch(PDO::FETCH_ASSOC)){
 </head>
 <body>  
     <!--Debut div container-fluid-->
-<div class="container-fluid">    
+<div class="container">    
     <h1 class="col-md-12 text-center">Gestion Article</h1>
     <a href="accueil_admin.php" class="return" title="retour"><i class="fas fa-hand-point-left fa-2x text-dark"></i></a>
-    <a class="offset-11 mb-5 btn btn-outline-dark" href="gestion_article.php" title="ajouter un article"><i
+    <a class="offset-11 mb-5 btn btn-outline-dark" href="form_article.php" title="ajouter un article"><i
             class="fas fa-pencil-alt fa-2x"></i></a>
     <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col-md-2" class="text-center">idArticle</th>
-                    <th scope="col-md-2" class="text-center">artTitle</th>
-                    <th scope="col-md-2" class="text-center">Contenu</th>
-                    <th scope="col-md-2" class="text-center">dateArt</th>
-                    <th scope="col-md-2" class="text-center">fNameAuteurArt</th>
-                    <th scope="col-md-2" class="text-center">lNameAuteurArt</th>
-                    <th scope="col-md-2" class="text-center">emailAuteurArt</th>
-                    <th scope="col-md-2" class="text-center">photoArticle</th>
-                    <th scope="col-md-2" class="text-center">linkArticle</th>
+                    <th class="text-center">idArticle</th>
+                    <th class="text-center">artTitle</th>
+                    <th class="text-center">Contenu</th>
+                    <th class="text-center">dateArt</th>
+                    <th class="text-center">fNameAuteurArt</th>
+                    <th class="text-center">lNameAuteurArt</th>
+                    <th class="text-center">photoArticle</th>
+                    <th class="text-center">linkArticle</th>
                     <th colspan="2">Action</th>
 
                 </tr>
             </thead>
             <tbody>
+           
                 <?= $art; ?>
+          
 
             </tbody>
         </table>
@@ -102,6 +104,5 @@ while($article=$resultat->fetch(PDO::FETCH_ASSOC)){
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
-</div>
 </body>
 </html>   

@@ -22,9 +22,7 @@ require_once("../include/init.inc.php");
 </head>
 <body>  
     <!--Debut div container-fluid-->
-    <div class="container-fluid">
-        
-<div id="container">
+<div class="container">
     
 
 <h1 class="display-4 text-center"> Liste des articles</h1>
@@ -45,7 +43,7 @@ require_once("../include/init.inc.php");
                 </tr>
             </thead>
             <tbody>
-                <?php echo $contenu; ?>
+                
 
             </tbody>
         </table>
@@ -62,6 +60,5 @@ require_once("../include/init.inc.php");
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
-</div>
 </body>
 </html>   

@@ -46,42 +46,42 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <div class="form-group row">
       <i class="fas fa-tasks text-light fa-2x"></i>
       <div class="col-sm-4">    
-            <button class="btn btn-outline-primary btn-block hover" type="button"><a href="gestion_article.php">Gest° article</a> </button>
+            <button class="btn btn-outline-primary btn-block hover" type="button"><a href="gestion_article.php">G° article</a> </button>
       </div>
     </div>
     <!--Fin gestion article-->
     <div class="form-group row">
             <i class="fas fa-tasks text-light fa-2x"></i>
             <div class="col-sm-4">
-                <button class="btn btn-outline-success btn-block hover" type="button"><a href="gestion_contact.php">Gest° contact</a> </button>
+                <button class="btn btn-outline-success btn-block hover" type="button"><a href="gestion_contact.php">G° contact</a> </button>
             </div>
           </div>
     <!--Fin gestion contact-->
           <div class="form-group row">
               <i class="fas fa-tasks text-light fa-2x"></i>
               <div class="col-sm-4">
-                  <button class="btn btn-outline-info btn-block hover" type="button"><a href="gestion_formation.php">Gest° format°</a> </button>
+                  <button class="btn btn-outline-info btn-block hover" type="button"><a href="gestion_formation.php">G° format°</a> </button>
                 </div>
             </div>
             <!--Fin gestion formation-->
             <div class="form-group row">
                 <i class="fas fa-tasks text-light fa-2x"></i>
                 <div class="col-sm-4">
-                    <button class="btn btn-outline-warning btn-block hover" type="button"><a href="gestion_realisation.php">Gest° realisat°</a> </button>
+                    <button class="btn btn-outline-warning btn-block hover" type="button"><a href="gestion_realisation.php">G° realisat°</a> </button>
                 </div>
             </div>
             <!--Fin gestion formulaire article-->
             <div class="form-group row">
                 <i class="fas fa-tasks text-light fa-2x"></i>
                 <div class="col-sm-4">
-                    <button class="btn btn-outline-light btn-block hover" type="button"><a href="form_article.php">Gest° Form Art</a> </button>
+                    <button class="btn btn-outline-light btn-block hover" type="button"><a href="form_article.php">G° Form Art</a> </button>
                 </div>
             </div>
             <!--Fin gestion realisation-->
             <div class="form-group row">
                 <i class="fas fa-tasks text-light fa-2x"></i>
                 <div class="col-sm-4">
-                    <button class="btn btn-outline-info btn-block hover" type="button"><a href="gestion_competence.php">Gest° comptence</a> </button>
+                    <button class="btn btn-outline-info btn-block hover" type="button"><a href="gestion_competence.php">G° comptence</a> </button>
                     <!--Fin Gestion comptence-->
                     </div>
                 </div>

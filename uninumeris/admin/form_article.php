@@ -8,10 +8,10 @@ _title -< pour le titre à mettre en anglais
 _content
 */
 // Ici j'affiche les infos que récupère grâce à la methode "post" du formulaire. Ceci m'aide à voir que mon formulaire envoie bien les données saisies
-echo '<pre style="background:DarkSlateGray;color:white;" >';
-var_dump($_POST);
-echo '</pre>';
-extract($_POST);
+ echo '<pre style="background:DarkSlateGray;color:white;" >';
+ var_dump($_POST);
+ echo '</pre>';
+ extract($_POST);
 // je créé ma variable d'affichage
 $msgArtTitleError = "";
 $msgContentError = "";
@@ -23,78 +23,98 @@ $msgPhotoArticleError = "";
 $msgLinkArticleError = "";
 
 // Je vérifie les champs de mon formulaire
-if ($_POST) {
+
+// Ajout et modification Article 
+// a_Je recupere les infos pour la modification.
+if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id']) ){
+    $modifier = $bdd->prepare("SELECT * FROM article WHERE idArticle = :idArticle");
+    $modifier->bindValue(':idArticle', $_GET['id'], PDO::PARAM_INT);
+    $modifier->execute();
+    
+    if($modifier->rowCount() > 0 ){
+        // Je recupere les informations en bdd pour afficher dans le formulaire de modification
+        $modif = $modifier->fetch(PDO::FECTH_ASSOC);
+    }
+}//Fin if(isset($_GET['action']) && $_GET['action']
+
+// b Traitement du formulaire pour insertion
+ if ($_POST) {
 
     // Je vérifie que chaque champs n'esxistent pas ou bien qu'il ne correspondent pas à ce que j'attend. Dans ce cas un message d'erreur sera affiché.
-    if (empty($artTitle) || iconv_strlen($artTitle) < 7 || iconv_strlen($artTitle) > 100) {
-        $msgArtTitleError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre entre 7 et 50 caractères</span>';
-    } // FIN if (empty($_POST['title'])
+    // if (empty($artTitle) || iconv_strlen($artTitle) < 7 || iconv_strlen($artTitle) > 100) {
+     $msgArtTitleError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre entre 7 et 50 caractères</span>';
+     } // FIN if (empty($_POST['title'])
 
-    if (empty($_POST['linkArticle']) || !preg_match('#^(http|https)://[\w-]+[\w.-]+\.[a-zA-Z]{2,6}#i', $_POST['linkArticle'])) {
-        $msgLinkArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre URL valide</span>';
-    } // FIN if (empty($_POST['linkArticle'])
+     if (empty($_POST['linkArticle']) || !preg_match('#^(http|https)://[\w-]+[\w.-]+\.[a-zA-Z]{2,6}#i', $_POST['linkArticle'])) {
+         $msgLinkArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre URL valide</span>';
+     } // FIN if (empty($_POST['linkArticle'])
 // ********************************************************************************************************************
-    if (empty($_POST['photoArticle'])) {
-        $msgPhotoArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre image valide</span>';
+     if (empty($_POST['photoArticle'])) {
+         $msgPhotoArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre image valide</span>';
     }  // FIN if (empty($_POST['photo'])
 
     /***************************INSERTION DE PHOTO*******************************/
-    if (!empty($_FILES['photo']['name'])) // on vérifie que l'indice 'name' dans la superglobale $_FILES n'est pas vide, cela veut dire que l'on a bien uploader une photo
+     if (!empty($_FILES['photo']['name'])) 
+                // on vérifie que l'indice 'name' dans la superglobale $_FILES n'est pas vide, cela veut dire que l'on a bien uploader une photo
 
-            {
-                $nom_photo = $reference . '-' . $_FILES['photo']['name']; // on redéfinit le nom de la photo en concaténant la référence saisi dans le formulaire avec le nom de la photo
+             {
+                 $nom_photo = $reference . '-' . $_FILES['photo']['name']; 
+                 // on redéfinit le nom de la photo en concaténant la référence saisi dans le formulaire avec le nom de la photo
                 echo $nom_photo . '<br>';
-                $photo_bdd = URL . "photo/$nom_photo"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
+                 $photo_bdd = URL . "photo/$nom_photo"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
                 echo $photo_bdd . '<br>';
-                $photo_dossier = RACINE_SITE . "photo/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
-                echo $photo_dossier . '<br>';
-                copy($_FILES['photo']['tmp_name'], $photo_dossier); // copy() est une fonction prédéfinie qui permet de copier la photo dans le dossier photo. arguments: copy(nom_temporaire_photo, chemin de destinati
+                 $photo_dossier = RACINE_SITE . "photo/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
+                 echo $photo_dossier . '<br>';
+                 copy($_FILES['photo']['tmp_name'], $photo_dossier); // copy() est une fonction prédéfinie qui permet de copier la photo dans le dossier photo. arguments: copy(nom_temporaire_photo, chemin de destinati
 
 
     /***************************Fin D'INSERTION DE PHOTO*******************************/
 // ********************************************************************************************************************
-    if (empty($_POST['content'])) {
-        $msgContentError.= '<span class="text-danger text-center"> ** Veuillez saisir votre article</span>';
-    }  // FIN if (empty($_POST['content'])
+     if (empty($_POST['content'])) {
+         $msgContentError.= '<span class="text-danger text-center"> ** Veuillez saisir votre article</span>';
+     }  // FIN if (empty($_POST['content'])
 
     // Champ fNameAuteurArt
-    if (empty($_POST['fNameAuteurArt']) || iconv_strlen($_POST['fNameAuteurArt']) < 2 || iconv_strlen($_POST['fNameAuteurArt']) > 50) {
-        $msgFNameAuteurArtError.= '<span class="text-danger text-center"> ** Veuillez saisir votre prenom entre 7 et 50 caractères</span>';
-    } // FIN if (empty($_POST['fNameAuteurArt'])
+     if (empty($_POST['fNameAuteurArt']) || iconv_strlen($_POST['fNameAuteurArt']) < 2 || iconv_strlen($_POST['fNameAuteurArt']) > 50) {
+         $msgFNameAuteurArtError.= '<span class="text-danger text-center"> ** Veuillez saisir votre prenom entre 7 et 50 caractères</span>';
+     } // FIN if (empty($_POST['fNameAuteurArt'])
     // Champ nom
     if (empty($_POST['lNameAuteurArt']) || iconv_strlen($_POST['lnameAuteurArt']) < 2 || iconv_strlen($_POST['lnameAuteurArt']) > 50) {
-        $msgLNameAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir votre nom entre 7 et 50 caractères</span>';
-    } // FIN if (empty($_POST['fNameAuteurArt'])
+         $msgLNameAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir votre nom entre 7 et 50 caractères</span>';
+     } // FIN if (empty($_POST['fNameAuteurArt'])
 
         // verif champ email
     if (empty($_POST['emailAuteurArt']) || !filter_var(FILTER_VALIDATE_EMAIL, $_POST['emailAuteurArt'])) {
-        $msgEmailAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir un mail valid</span>';
-    } // FIN if (empty($_POST['link'])
+         $msgEmailAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir un mail valid</span>';
+     } // FIN if (empty($_POST['link'])
 
     // SI VERIFIE => 
     // si Je n'ai pas de message d'erreur j'effectue l'insertion à ma BDD 
-    if (empty($msgArtTitleError || $msgLinkArticleError || $msgPhotoArticleError || $msgContentError || $msgArtTitleError || $msgFNameAuteurArtError || $msgLNameAuteurArtError || $msgEmailAuteurArtError)) {
+     if (empty($msgArtTitleError || $msgLinkArticleError || $msgPhotoArticleError || $msgContentError || $msgArtTitleError || $msgFNameAuteurArtError || $msgLNameAuteurArtError || $msgEmailAuteurArtError)) {
         
         
         
     // a) assainissement des saisies de l'intertnaute
-    foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);}
-        $requet = $bdd->prepare("INSERT INTO article (artTitle, content, dateArt, fNameAuteurArt, lnameAuteurArt, emailAuteurArt, photoArticle, linkArticle ) VALUES (:artTitle, :content, :dateArt, :fNameAuteurArt, :lnameAuteurArt, :emailAuteurArt, :photoArticle, :linkArticle)");
+     foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);}
+         $requet = $bdd->prepare("INSERT INTO article (artTitle, content, dateArt, fNameAuteurArt, lnameAuteurArt, emailAuteurArt, photoArticle, linkArticle ) VALUES (:artTitle, :content, :dateArt, :fNameAuteurArt, :lnameAuteurArt, :emailAuteurArt, :photoArticle, :linkArticle)");
     
         // J'associe les les valeurs saisies dans le  formulaire avec les marqueurs de securité php (:title,:content,:link, :photo)")
-        $requet->bindParam(':artTitle', $_POST['artTitle']);
-        $requet->bindParam(':content', $_POST['content']);
-        $requet->bindParam(':dateArt', $_POST['dateArt']);
-        $requet->bindParam(':fNameAuteurArt', $_POST['fNameAuteurArt']);
-        $requet->bindParam(':lNameAuteurArt', $_POST['lNameAuteurArt']);
-        $requet->bindParam(':emailAuteurArt', $_POST['emailAuteurArt']);
-        $requet->bindParam(':linkArticle', $_POST['linkArticle']);
+         $requet->bindParam(':artTitle', $_POST['artTitle']);
+         $requet->bindParam(':content', $_POST['content']);
+         $requet->bindParam(':dateArt', $_POST['dateArt']);
+         $requet->bindParam(':fNameAuteurArt', $_POST['fNameAuteurArt']);
+         $requet->bindParam(':lNameAuteurArt', $_POST['lNameAuteurArt']);
+         $requet->bindParam(':emailAuteurArt', $_POST['emailAuteurArt']);
+         $requet->bindParam(':linkArticle', $_POST['linkArticle']);
         $requet->bindParam(':photoArticle', $_POST['photoArticle']);
         // J'éxecute l'insertion en BDD
-        $requet->execute();
-    } //Fin if (empty($msg_title || $msg_content || $msg_link || $msg_photo))
+         $requet->execute();
+     } 
+     //Fin if (empty($msg_title || $msg_content || $msg_link || $msg_photo))
 
-} //Fin de $_POST 
+// } 
+
+//Fin de $_POST 
 ?>
 
 
@@ -117,13 +137,20 @@ if ($_POST) {
 </head>
 <body>  
     
+    
+    <!-- Une condition pour eviter qu'on sache que nous sommes sur une même page -->
     <div class="container">
-    <h1 class="text text-center mb-5">Formulaire</h1>
+    <?php if(isset($_GET['action']) && $_GET['action'] == 'modifier'){ ?>
+    <h1 class="text text-center mb-5 text-warning">Modifier votre article</h1>
+    <?php }else{ ?>
+    <h1 class="text text-center mb-5 text-success">Ajouter un article</h1>
+   <?php } ?>
+    <!-- Fin de la condition  -->
     <a href="gestion_article.php" class="return" title="retour"><i
             class="fas fa-hand-point-left fa-2x text-dark"></i></a>
     <form class="col-md-6 offset-3" method="post">
         <div class="col" >
-            <input type="hidden" name="idArticle">
+            <input type="hidden" name="idArticle" value="">
         </div>
         <!-- 1 -->
         <div class="row mt-3">
@@ -132,7 +159,8 @@ if ($_POST) {
             </div>
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="artTitle"
-                    placeholder="titre">
+                    placeholder="titre" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['idArticle'];}else{echo "0";} ?>">
             </div>
         </div>
 
@@ -143,7 +171,8 @@ if ($_POST) {
                   
                     <?= $msgPhotoArticleError; ?>
                 <label for="photo"></label>
-                <input type="file" id="photo" aria-describedby="" name="photoArticle">
+                <input type="file" id="photo" aria-describedby="" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php if (!empty($photoArticle)) : ?>
                 <img src="<?= $photoArticle?>" alt="" class="card-img-top">
                 <?php endif; ?>
@@ -153,7 +182,7 @@ if ($_POST) {
                   
                     <?= $msgLinkArticleError; ?>
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="linkArticle"
-                    placeholder="link">
+                    placeholder="link" value="">
             </div>
         </div>
         <!-- Fin div row photo et link  -->
@@ -169,7 +198,7 @@ if ($_POST) {
 
         <!-- Date -->
         <div class="mb-3 mt-3 offset-4">
-            <input class="mb-3 mt-3" type="date" max="2020-06-25" min="2019-03-30" name="dateArt">
+            <input class="mb-3 mt-3" type="date" max="2020-06-25" min="2019-03-30" name="dateArt" value="">
             <?= $msgDateArtError; ?>
             <div class="invalid-feedback"></div>
         </div>
@@ -182,7 +211,7 @@ if ($_POST) {
             </div>
             <div class="col mt-3">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="fNameAuteurArt"
-                    placeholder="First Name">
+                    placeholder="First Name" value="">
             </div>
         </div>
         <!-- lastname -->
@@ -194,7 +223,7 @@ if ($_POST) {
             </div>
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="lNameAuteurArt"
-                    placeholder="Last name">
+                    placeholder="Last name" value="">
             </div>
         </div>
         <!-- Auteur email -->
@@ -205,7 +234,7 @@ if ($_POST) {
             </div>
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="emailAuteurArt"
-                    placeholder="Votre Email">
+                    placeholder="Votre Email" value="">
             </div>
         </div>
         
