@@ -150,7 +150,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             class="fas fa-hand-point-left fa-2x text-dark"></i></a>
     <form class="col-md-6 offset-3" method="post">
         <div class="col" >
-            <input type="hidden" name="idArticle" value="">
+            <input type="hidden" name="idArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['idArticle'];}else{echo "0";} ?>">
         </div>
         <!-- 1 -->
         <div class="row mt-3">
@@ -160,7 +161,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="artTitle"
                     placeholder="titre" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
-                        echo $modif['idArticle'];}else{echo "0";} ?>">
+                        echo $modif['artTitle'];}else{echo "0";} ?>">
             </div>
         </div>
 
@@ -171,10 +172,9 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
                   
                     <?= $msgPhotoArticleError; ?>
                 <label for="photo"></label>
-                <input type="file" id="photo" aria-describedby="" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
-                        echo $modif['photoArticle'];}else{echo "";} ?>">
+                <input type="file" id="photo" aria-describedby="" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php if (!empty($photoArticle)) : ?>
-                <img src="<?= $photoArticle?>" alt="" class="card-img-top">
+                <img src="<?= $photoArticle?>" alt="" class="card-img-top" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php endif; ?>
             </div>
             <!-- ------------------------- ------------------------------------------------------>
@@ -192,7 +192,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
         <div class="mb-3 mt-3">
             <?= $msgContentError; ?>
             <textarea class="form-control text-center border border-primary rounded" id="validationTextarea"
-                name="content" placeholder="Contenu de l'article"></textarea>
+                name="content" placeholder="Contenu de l'article" value=""><?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['content'];}else{echo "";} ?></textarea>
             <div class="invalid-feedback">
             </div>
         </div>
@@ -230,20 +231,6 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
                         echo $modif['lNameAuteurArt'];}else{echo "";} ?>">
             </div>
         </div>
-        <!-- Auteur email -->
-
-        <div class="row mt-3">
-            <div class="col-md-12 text-center ">
-                <?= $msgEmailAuteurArtError; ?>
-            </div>
-            <div class="col">
-                <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="emailAuteurArt"
-                    placeholder="Votre Email" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
-                        echo $modif['photoArticle'];}else{echo "";} ?>">
-            </div>
-        </div>
-        
-        
         <!-- Submit -->
         <div class="row mt-3 offset-4">
             <div class="col">
