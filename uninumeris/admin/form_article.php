@@ -33,7 +33,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
     
     if($modifier->rowCount() > 0 ){
         // Je recupere les informations en bdd pour afficher dans le formulaire de modification
-        $modif = $modifier->fetch(PDO::FECTH_ASSOC);
+        $modif = $modifier->fetch(PDO::FETCH_ASSOC);
     }
 }//Fin if(isset($_GET['action']) && $_GET['action']
 
@@ -112,7 +112,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
      } 
      //Fin if (empty($msg_title || $msg_content || $msg_link || $msg_photo))
 
-// } 
+ } 
 
 //Fin de $_POST 
 ?>
@@ -177,12 +177,13 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
                 <img src="<?= $photoArticle?>" alt="" class="card-img-top">
                 <?php endif; ?>
             </div>
-            <!-- ------------------------- -->
+            <!-- ------------------------- ------------------------------------------------------>
             <div class="col mb-3 mt-3 ">
                   
                     <?= $msgLinkArticleError; ?>
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="linkArticle"
-                    placeholder="link" value="">
+                    placeholder="link" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['linkArticle'];}else{echo "";} ?>">
             </div>
         </div>
         <!-- Fin div row photo et link  -->
@@ -198,7 +199,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
 
         <!-- Date -->
         <div class="mb-3 mt-3 offset-4">
-            <input class="mb-3 mt-3" type="date" max="2020-06-25" min="2019-03-30" name="dateArt" value="">
+            <input class="mb-3 mt-3" type="date" max="2020-06-25" min="2019-03-30" name="dateArt" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['dateArt'];}else{echo "";} ?>">
             <?= $msgDateArtError; ?>
             <div class="invalid-feedback"></div>
         </div>
@@ -211,7 +213,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             </div>
             <div class="col mt-3">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="fNameAuteurArt"
-                    placeholder="First Name" value="">
+                    placeholder="First Name" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['fNameAuteurArt'];}else{echo "";} ?>">
             </div>
         </div>
         <!-- lastname -->
@@ -223,7 +226,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             </div>
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="lNameAuteurArt"
-                    placeholder="Last name" value="">
+                    placeholder="Last name" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['lNameAuteurArt'];}else{echo "";} ?>">
             </div>
         </div>
         <!-- Auteur email -->
@@ -234,7 +238,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             </div>
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="emailAuteurArt"
-                    placeholder="Votre Email" value="">
+                    placeholder="Votre Email" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
+                        echo $modif['photoArticle'];}else{echo "";} ?>">
             </div>
         </div>
         
