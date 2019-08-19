@@ -41,8 +41,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
  if ($_POST) {
 
     // Je vérifie que chaque champs n'esxistent pas ou bien qu'il ne correspondent pas à ce que j'attend. Dans ce cas un message d'erreur sera affiché.
-    // if (empty($artTitle) || iconv_strlen($artTitle) < 7 || iconv_strlen($artTitle) > 100) {
-     $msgArtTitleError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre entre 7 et 50 caractères</span>';
+    if (empty($artTitle) || iconv_strlen($artTitle) > 255) {
+     $msgArtTitleError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre entre  et 50 caractères</span>';
      } // FIN if (empty($_POST['title'])
 
      if (empty($_POST['linkArticle']) || !preg_match('#^(http|https)://[\w-]+[\w.-]+\.[a-zA-Z]{2,6}#i', $_POST['linkArticle'])) {
@@ -54,16 +54,16 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
     }  // FIN if (empty($_POST['photo'])
 
     /***************************INSERTION DE PHOTO*******************************/
-     if (!empty($_FILES['photo']['name'])) 
+     if (!empty($_FILES['img']['name'])) 
                 // on vérifie que l'indice 'name' dans la superglobale $_FILES n'est pas vide, cela veut dire que l'on a bien uploader une photo
 
              {
-                 $nom_photo = $reference . '-' . $_FILES['photo']['name']; 
+                 $photoArticle = $reference . '-' . $_FILES['img']['name']; 
                  // on redéfinit le nom de la photo en concaténant la référence saisi dans le formulaire avec le nom de la photo
-                echo $nom_photo . '<br>';
-                 $photo_bdd = URL . "photo/$nom_photo"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
+                echo $photoArticle . '<br>';
+                 $photoArticle_bdd = URL . "photo/$photoArticle"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
                 echo $photo_bdd . '<br>';
-                 $photo_dossier = RACINE_SITE . "photo/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
+                 $photo_dossier = RACINE_SITE . "img/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
                  echo $photo_dossier . '<br>';
                  copy($_FILES['photo']['tmp_name'], $photo_dossier); // copy() est une fonction prédéfinie qui permet de copier la photo dans le dossier photo. arguments: copy(nom_temporaire_photo, chemin de destinati
 
@@ -75,18 +75,14 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
      }  // FIN if (empty($_POST['content'])
 
     // Champ fNameAuteurArt
-     if (empty($_POST['fNameAuteurArt']) || iconv_strlen($_POST['fNameAuteurArt']) < 2 || iconv_strlen($_POST['fNameAuteurArt']) > 50) {
-         $msgFNameAuteurArtError.= '<span class="text-danger text-center"> ** Veuillez saisir votre prenom entre 7 et 50 caractères</span>';
+     if (empty($_POST['fNameAuteurArt']) || iconv_strlen($_POST['fNameAuteurArt']) < 2 || iconv_strlen($_POST['fNameAuteurArt']) > 255) {
+         $msgFNameAuteurArtError.= '<span class="text-danger text-center"> ** Veuillez saisir votre prenom entre 7 et 255 caractères</span>';
      } // FIN if (empty($_POST['fNameAuteurArt'])
     // Champ nom
     if (empty($_POST['lNameAuteurArt']) || iconv_strlen($_POST['lnameAuteurArt']) < 2 || iconv_strlen($_POST['lnameAuteurArt']) > 50) {
-         $msgLNameAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir votre nom entre 7 et 50 caractères</span>';
+         $msgLNameAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir votre nom entre 7 et 255 caractères</span>';
      } // FIN if (empty($_POST['fNameAuteurArt'])
 
-        // verif champ email
-    if (empty($_POST['emailAuteurArt']) || !filter_var(FILTER_VALIDATE_EMAIL, $_POST['emailAuteurArt'])) {
-         $msgEmailAuteurArtError .= '<span class="text-danger text-center"> ** Veuillez saisir un mail valid</span>';
-     } // FIN if (empty($_POST['link'])
 
     // SI VERIFIE => 
     // si Je n'ai pas de message d'erreur j'effectue l'insertion à ma BDD 
@@ -96,9 +92,20 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
         
     // a) assainissement des saisies de l'intertnaute
      foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);}
-         $requet = $bdd->prepare("INSERT INTO article (artTitle, content, dateArt, fNameAuteurArt, lnameAuteurArt, emailAuteurArt, photoArticle, linkArticle ) VALUES (:artTitle, :content, :dateArt, :fNameAuteurArt, :lnameAuteurArt, :emailAuteurArt, :photoArticle, :linkArticle)");
+         $requet = $bdd->prepare("REPLACE INTO article VALUES (:idArticle, :artTitle, :content, :dateArt, :fNameAuteurArt, :lnameAuteurArt, :photoArticle, :linkArticle)", array(
+             ':idArticle' => $_POST['idArticle'],
+             ':artTitle'  => $_POST['artTitle'],
+             ':content'   => $_POST['content'],
+             ':dateArt'   => $_POST['dateArt'],
+             ':fNameAuteurArt' => $_POST['fNameAuteurArt'],
+             ':lnameAuteurArt' => $_POST['lnameAuteurArt'], 
+             ':photoArticle' => $_POST['photoArticle'],
+             ':linkArticle' => $_POST['linkArticle'],
+
+         ));
     
         // J'associe les les valeurs saisies dans le  formulaire avec les marqueurs de securité php (:title,:content,:link, :photo)")
+         $requet->bindParam(':idArticle', $_POST['idartTitle']);
          $requet->bindParam(':artTitle', $_POST['artTitle']);
          $requet->bindParam(':content', $_POST['content']);
          $requet->bindParam(':dateArt', $_POST['dateArt']);
@@ -112,6 +119,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
      } 
      //Fin if (empty($msg_title || $msg_content || $msg_link || $msg_photo))
 
+ } 
  } 
 
 //Fin de $_POST 
@@ -170,11 +178,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
         <div class="row">
             <div class="col mb-3 mt-3">
                   
-                    <?= $msgPhotoArticleError; ?>
+                <?= $msgPhotoArticleError; ?>
                 <label for="photo"></label>
-                <input type="file" id="photo" aria-describedby="" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php if (!empty($photoArticle)) : ?>
                 <img src="<?= $photoArticle?>" alt="" class="card-img-top" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
+                <?php else : ?>
+                <input type="file" aria-describedby="" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php endif; ?>
             </div>
             <!-- ------------------------- ------------------------------------------------------>
