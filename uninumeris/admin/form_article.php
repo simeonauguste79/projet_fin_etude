@@ -1,5 +1,16 @@
 <?php 
 require_once("../include/init.inc.php");
+// Connexion à ma table article
+if(isset($_GET['id'])){
+
+    $resultat = $bdd->prepare("SELECT * FROM article WHERE idArticle = :idArticle");
+    $resultat->bindValue(':idArticle', $_GET['id'], PDO::PARAM_INT);
+    $resultat->execute();
+    
+    $article = $resultat->fetch(PDO::FETCH_ASSOC);
+}
+
+
 /*Verification des champs du formulaire
 -> parcourir dejà la BDD et repertorier les champs à utiliser
 Table article 
@@ -39,7 +50,6 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
 
 // b Traitement du formulaire pour insertion
  if ($_POST) {
-
     // Je vérifie que chaque champs n'esxistent pas ou bien qu'il ne correspondent pas à ce que j'attend. Dans ce cas un message d'erreur sera affiché.
     if (empty($artTitle) || iconv_strlen($artTitle) > 255) {
      $msgArtTitleError .= '<span class="text-danger text-center"> ** Veuillez saisir votre titre entre  et 50 caractères</span>';
@@ -49,7 +59,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
          $msgLinkArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre URL valide</span>';
      } // FIN if (empty($_POST['linkArticle'])
 // ********************************************************************************************************************
-     if (empty($_POST['photoArticle'])) {
+     if (empty($_POST['photo'])) {
          $msgPhotoArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre image valide</span>';
     }  // FIN if (empty($_POST['photo'])
 
@@ -58,10 +68,10 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
                 // on vérifie que l'indice 'name' dans la superglobale $_FILES n'est pas vide, cela veut dire que l'on a bien uploader une photo
 
              {
-                 $photoArticle = $reference . '-' . $_FILES['img']['name']; 
+                 $photo = $reference . '-' . $_FILES['img']['name']; 
                  // on redéfinit le nom de la photo en concaténant la référence saisi dans le formulaire avec le nom de la photo
-                echo $photoArticle . '<br>';
-                 $photoArticle_bdd = URL . "photo/$photoArticle"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
+                echo $photo . '<br>';
+                 $photo_bdd = URL . "photo/$photo"; // on définit l'URL de la photo, c'est ce que l'on conservera en BDD
                 echo $photo_bdd . '<br>';
                  $photo_dossier = RACINE_SITE . "img/$nom_photo"; // on définit le chemin physique de la photo sur le disque dur du serveur, c'est ce qui nous permettra de copier la photo dans le dossier photo
                  echo $photo_dossier . '<br>';
@@ -91,7 +101,9 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
         
         
     // a) assainissement des saisies de l'intertnaute
-     foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);}
+     foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);} 
+    //  J'utilise la la requete REPLACE INTO  pour pouvoir faire mes requete d'insertion et de modification sur le même formulaire
+    
          $requet = $bdd->prepare("REPLACE INTO article VALUES (:idArticle, :artTitle, :content, :dateArt, :fNameAuteurArt, :lnameAuteurArt, :photoArticle, :linkArticle)", array(
              ':idArticle' => $_POST['idArticle'],
              ':artTitle'  => $_POST['artTitle'],
@@ -155,7 +167,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
    <?php } ?>
     <!-- Fin de la condition  -->
     <a href="gestion_article.php" class="return" title="retour"><i
-            class="fas fa-hand-point-left fa-2x text-dark"></i></a>
+            class="fas fa-hand-point-left fa-2x text-primary"></i></a>
     <form class="col-md-6 offset-3" method="post">
         <div class="col" >
             <input type="hidden" name="idArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
@@ -176,16 +188,17 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
         <!-- photo ------------------------------------------------------------------------------------------>
         <!-- Debut div row photo link -->
         <div class="row">
-            <div class="col mb-3 mt-3">
-                  
+            <div class="col mb-3 mt-3">   
                 <?= $msgPhotoArticleError; ?>
                 <label for="photo"></label>
                 <?php if (!empty($photoArticle)) : ?>
-                <img src="<?= $photoArticle?>" alt="" class="card-img-top" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
-                <?php else : ?>
-                <input type="file" aria-describedby="" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
+                <em>Vous pouvez uploader une nouvelle photo si vous souhaitez la changer</em><br>
+                <img src="<?= $article['photoArticle'] ?>" alt="<?= $titre ?>" class="card-img-top" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];} ?>">
                 <?php endif; ?>
-            </div>
+                <input type="file" aria-describedby="" name="photoArticle">
+            <!--  -->
+         
+            <!--  -->
             <!-- ------------------------- ------------------------------------------------------>
             <div class="col mb-3 mt-3 ">
                   

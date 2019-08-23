@@ -31,6 +31,7 @@ while($article=$resultat->fetch(PDO::FETCH_ASSOC)){
       $art.='<td><a href="form_article.php?action=modifier&id='.$article['idArticle'].'"><i class="far fa-edit"></i></a></td>';
       $art.='<td><a href="?action=supprimer&id='.$article['idArticle'].'"><i class="fas fa-trash"></i></a></td>';
     $art.='</tr>';
+    
 }
 // ---------------SUPPRESSION DE ARTICLE--------------------------------------------------------------------------
 
@@ -68,9 +69,9 @@ if(isset($action) && $action == 'supprimer' && isset($id) && $id == $id){
     <!--Debut div container-fluid-->
 <div class="container">    
     <h1 class="col-md-12 text-center">Gestion Article</h1>
-    <a href="accueil_admin.php" class="return" title="retour"><i class="fas fa-hand-point-left fa-2x text-dark"></i></a>
+    <a href="accueil_admin.php" class="return" title="retour"><i class="fas fa-hand-point-left fa-2x text-primary"></i></a>
     <a class="offset-11 mb-5 btn btn-outline-dark" href="form_article.php" title="ajouter un article"><i
-            class="fas fa-pencil-alt fa-2x"></i></a>
+            class="fas fa-pencil-alt fa-2x text-primary bg-"></i></a>
     <table class="table table-dark">
             <thead>
                 <tr>
