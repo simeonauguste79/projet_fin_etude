@@ -181,7 +181,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             <div class="col">
                 <input type="text" class="form-control text-center rounded-pill border border-primary hover" name="artTitle"
                     placeholder="titre" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){
-                        echo $modif['artTitle'];}else{echo "0";} ?>">
+                        echo $modif['artTitle'];}else{echo "";} ?>">
             </div>
         </div>
 
@@ -191,9 +191,9 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
             <div class="col mb-3 mt-3">   
                 <?= $msgPhotoArticleError; ?>
                 <label for="photo"></label>
-                <?php if (!empty($photoArticle)) : ?>
-                <em>Vous pouvez uploader une nouvelle photo si vous souhaitez la changer</em><br>
-                <img src="<?= $article['photoArticle'] ?>" alt="<?= $titre ?>" class="card-img-top" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];} ?>">
+                <?php if (empty($photoArticle)) : ?>
+                <span class="text-success">Vous pouvez uploader une nouvelle photo si vous souhaitez la changer</span><br>
+                <img src="img/<?= $article['photoArticle'] ?>" alt="photo" class="card-img-top" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php endif; ?>
                 <input type="file" aria-describedby="" name="photoArticle">
             <!--  -->

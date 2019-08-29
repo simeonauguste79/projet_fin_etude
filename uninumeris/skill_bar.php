@@ -1,54 +1,84 @@
+
+
 <?php 
-require_once("include/init.inc.php");
-require_once('include/header.inc.php' );
-?>
-    
+  require_once("include/init.inc.php");
+  require_once('include/header.inc.php' );
+  ?>
+<!--  -->
     <hr class="style1">
-    
-    
-    <h1>jQuery & CSS3 Skills Bar</h1>
+    <div class="card bg-dark text-white">
+  <img src="img/slide_one.jpg" class="card-img" alt="">
 
-<div class="skillbar clearfix " data-percent="20%">
-	<div class="skillbar-title" style="background: #d35400;"><span>HTML5</span></div>
-	<div class="skillbar-bar" style="background: #e67e22;"></div>
-	<div class="skill-bar-percent">20%</div>
-</div> <!-- End Skill Bar -->
-
-<div class="skillbar clearfix " data-percent="25%">
-	<div class="skillbar-title" style="background: #2980b9;"><span>CSS3</span></div>
-	<div class="skillbar-bar" style="background: #3498db;"></div>
-	<div class="skill-bar-percent">25%</div>
-</div> <!-- End Skill Bar -->
-
-<div class="skillbar clearfix " data-percent="50%">
-	<div class="skillbar-title" style="background: #2c3e50;"><span>jQuery</span></div>
-	<div class="skillbar-bar" style="background: #2c3e50;"></div>
-	<div class="skill-bar-percent">50%</div>
-</div> <!-- End Skill Bar -->
-
-<div class="skillbar clearfix " data-percent="40%">
-	<div class="skillbar-title" style="background: #46465e;"><span>PHP</span></div>
-	<div class="skillbar-bar" style="background: #5a68a5;"></div>
-	<div class="skill-bar-percent">40%</div>
-</div> <!-- End Skill Bar -->
-
-<div class="skillbar clearfix " data-percent="75%">
-	<div class="skillbar-title" style="background: #333333;"><span>Wordpress</span></div>
-	<div class="skillbar-bar" style="background: #525252;"></div>
-	<div class="skill-bar-percent">75%</div>
-</div> <!-- End Skill Bar -->
-
-<div class="skillbar clearfix " data-percent="100%">
-	<div class="skillbar-title" style="background: #27ae60;"><span>SEO</span></div>
-	<div class="skillbar-bar" style="background: #2ecc71;"></div>
-	<div class="skill-bar-percent">100%</div>
-</div> <!-- End Skill Bar -->
-
-<div class="skillbar clearfix " data-percent="70%">
-	<div class="skillbar-title" style="background: #124e8c;"><span>Photoshop</span></div>
-	<div class="skillbar-bar" style="background: #4288d0;"></div>
-	<div class="skill-bar-percent">70%</div>
-</div> <!-- End Skill Bar -->
+</div>
+    <hr class="style1">
+    <!-------------------------------------------------------------------------------------------------------------------->
+      <!-- Compétences -->
+<?php 
+$contenu = '';
+$competences = '';
 
 
+$resultat = $bdd->query("SELECT * FROM competence");
+$contenu.='<div class="row">';
+while($competences = $resultat->fetch(PDO::FETCH_ASSOC))
+{
+  
+  $contenu.='<div class="space "></div>';
+     $contenu.='<div class="col-md-3 service">';
+      $contenu.='<div class="text text-center mt-4"><i class="'.$competences['photo_competence'].' hover"></i></div>';
+      $contenu.='<h5 class="card-title text-center">'.$competences['title_competence'].'</h5>';
+      $contenu.='<br><p class="card-text text-light text text-center">'.$competences['content_competence'].'</p>';
+     $contenu.='</div>';
+     
+}
+$contenu.='</div>';
+   ?>
+    <!---->
+        <div class="container ">
+
+        <?php echo $contenu;?>
+
+    </div>
+    <!-- FIN row -->
+    <!-------------------------------------------------------------------------------------------------------------------->
+    <hr class="style1">
+<?php
+  // requete de selection on recupere les articles de la  BDD
+  $resultat = $bdd->query("SELECT * FROM skill_bar");
+  while ($niveau = $resultat->fetch(PDO::FETCH_ASSOC)):
+  ?>
+<div class="skillbar clearfix mt-5 " data-percent="<?=$niveau['niveau']?>%">
+  <div class="skillbar-title" style="background: <?=$niveau['background_title']?>;"><span><?=$niveau['niveau_title']?></span></div>
+  <div class="skillbar-bar " style="background: <?=$niveau['background_bar']?>;"></div>
+  <!-- ANCIEN CODE DE NIVEAU -->
+  <!-- <div class="skill-bar-percent">
+	  </?=$niveau'niveau'?>%
+	</div> -->
+	<!-- NOUVEAU CODE DE NIVEAU -->
+  <div class="skill-bar-percent">
+	 <?php if($niveau['niveau'] <= 50 ){?>
+			<div class="skill-bar-percent">
+	  			<?= '<h6 class="font-weight-bold text-uppercase text-center text-danger mt-2">Débutant</h6>' ?>
+			</div> 
+		  <?php } elseif($niveau['niveau'] > 50 && $niveau['niveau'] <= 65 ) {?>
+			<div class="skill-bar-percent">
+	  			<?= '<h6 class="font-weight-bold text-uppercase text-center text-warning mt-2">Intermédiaire</h6>' ?>
+			</div> 
+			<?php } elseif($niveau['niveau'] > 65 && $niveau['niveau'] <= 80 ){?>
+				<div class="skill-bar-percent">
+	  			<?= '<h6 class="font-weight-bold text-uppercase text-center text-info mt-2">Avancé</h6>' ?>
+				</div> 
+			<?php }elseif($niveau['niveau'] > 80 && $niveau['niveau'] <= 100 ){?>
+				<div class="skill-bar-percent progress-bar-striped">
+	  			<?= '<h6 class="font-weight-bold text-uppercase text-center text-success mt-2">Maîtrise</h6>' ?>
+				</div> 
+			<?php }?>
+  </div>
+</div>
+<?php endwhile; ?>
+<section class="container">
+<div class="row">
+</div>
+<hr class="style1">
 <?php require_once('include/footer.inc.php') ?>
+

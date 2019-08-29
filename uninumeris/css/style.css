@@ -8,6 +8,13 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 
+p
+{
+	font-size: 20px;
+	font-family: monospace;
+	max-width: 700px;
+	margin: auto;
+}
 
 
 /************************************* REGLAGES GENEREAUX *************************************/
@@ -15,11 +22,6 @@ body
 {
 	background-color: #030444;
 	font-size:100%
-}
-@media only screen and (max-device-width:980px) {
- body {
- font-size:120%;
- }
 }
 
 /**********************************Tes d'association à ma feuile de style***********************************/
@@ -85,8 +87,9 @@ div.sim
 	color: #fcfeff;
 	margin-top: -18px;
 	margin-left: 220px;
-	width: 1125px;
+	width: 859px;
 }
+
 
 /**************************************reseaux sociaux footer***************************************************************/
 /* reseaux sociaux footer1_ Redimensionner chacun des logos en talle 60px(X)60px2_Reduire en forme circulaire avec le border-radius 3_ajouter une bordure en RGB4_appliquer le code du passage de la souris*/
@@ -134,6 +137,16 @@ footer ul li
 	margin-bottom:15px;
 }
 
+footer ul li 
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 15px;
+    margin-left: 0%;
+	margin-right: 3%;
+}
+
 /* hover pour les boutons "qui, séance, témoignages, blog" */
 .hover:hover
 {
@@ -147,6 +160,10 @@ footer ul li
 	transition: all 0.10s ease-in-out 0s;
 }
 
+.nav_footer
+{
+	margin-left: 50px;
+}
 /**********************************************Logo**********************************************/
 .gif img
 {
@@ -185,6 +202,8 @@ footer ul li
 	}
 }
 
+
+
 /*************************************Apparition reseaux sociaux en displays inline*******************************/
 @media(max-width: 500px)
 {
@@ -219,8 +238,9 @@ footer ul li
 		*/
 	}
 }
+/********************************************Ecran 800*******************************************************************/
 
-@media(max-width: 768px)
+@media(max-width: 869px)
 {
 	.logo1 img
 	{
@@ -236,8 +256,7 @@ footer ul li
 		*/
 	}
 }
-
-@media(max-width: 800px)
+@media(max-width: 1024px)
 {
 	.logo1 img
 	{
@@ -358,8 +377,41 @@ footer ul li
 		*/
 	}
 }
+@media(max-width: 1024px)
+{
+	.s-titre
+	{
+		position: relative;
+		margin-top: 10px;
+	}
 
-/*****************************************Fin Le titre Simeon Auguste et P s-titre*******************************************************************/
+	.s-titre
+	{
+		display: none;
+		/* flex-direction: row-reverse;
+		justify-content: center;
+		*/
+	}
+}
+
+/************************Fin Le titre Simeon Auguste et s-titre********************************************/
+
+@media(max-width: 1024px)
+{
+	.center
+	{
+		position: relative;
+		margin-top: 10px;
+	}
+
+	.center
+	{
+		display: none;
+		/* flex-direction: row-reverse;
+		justify-content: center;
+		*/
+	}
+}
 /*****************************************Disparition des sections*******************************************************************/
 /****************************************************header a text hover menu**********************************************************/
 .navbar-brand a
@@ -428,25 +480,9 @@ section .shazam img
 	background: black !important;
 }
 
-.video-center
-{
-	margin-left: 0;
-	border-radius: 2% !important;
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-}
 
-.video-center iframe,  .video-center object,  .video-center embed
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
+/**************************************************Video*********************************************************************/
+
 
 /**************************************************competence******************************************************************/
 /* Compétences */
@@ -592,4 +628,92 @@ p
 span .adm
 {
   visibility: hidden;
+}
+
+/****************************************************Index imag section**********************************************************/
+
+.img-responsive
+{
+	max-width : 100%;
+ 	height: auto;
+ 	display: block;
+}
+
+/********************************************Effet paralax*****************************************************************/
+
+.box1 
+{
+   height: 100vh; 
+   width: 100%;
+   background-image: url(../img/realisations/Affi_2020.png);
+   background-size: cover;
+   background-position: center;
+   display: table;
+   background-attachment: fixed;
+   background-size: 1000px;
+   background-repeat: no-repeat;
+   
+}
+.box2 
+{
+   height: 100vh; 
+   width: 100%;
+   background-image: url(../img/realisations/Arrafat_Dj.png);
+   background-size: cover;
+   background-position: center;
+   display: table;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: 1000px;
+}
+.box3 
+{
+   height: 100vh; 
+   width: 100%;
+   background-image: url(../img/realisations/Affi_Homme_De_Paix.png);
+   background-size: cover;
+   background-position: center;
+   display: table;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: 1000px;
+}
+.box4
+{
+   height: 100vh; 
+   width: 100%;
+   background: url(../img/realisations/Les\ Etats\ Généraux\ en\ Civ.png);
+   background-size: 600px;
+   background-position: center;
+   background-repeat: no-repeat;
+   display: table;
+   background-attachment: fixed;
+   margin-bottom: 120px;
+   background-repeat: no-repeat;
+   background-size: 1000px;
+}
+.box5
+{
+   height: 100vh; 
+   width: 100%;
+   background: url(../img/realisations/Alassane_et_Condé_chez_Macron.png);
+   background-size: 600px;
+   background-position: center;
+   background-repeat: no-repeat;
+   display: table;
+   background-attachment: fixed;
+   margin-bottom: 120px;
+   background-repeat: no-repeat;
+   background-size: 1000px;
+   
+}
+
+h4 
+{
+    font-family: sans-serif;
+    font-size: 48px;
+    color: #0A1BFF;
+    margin: 0;
+    text-align: center;
+    vertical-align:middle;
 }

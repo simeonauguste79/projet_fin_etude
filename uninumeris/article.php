@@ -8,21 +8,20 @@ $contenu = "";
 $resultat = $bdd->query("SELECT * FROM article");
 while ($article = $resultat->fetch(PDO::FETCH_ASSOC)) 
 {
-    // On affiche la card via la variable $contenu 
-    $contenu.='<div class="col-md-12 card m-2" style="width: 18rem;">';
-      $contenu.='<div class="card-body">';
-        $contenu.='<h5><a class="card-title" href="article.php?idArticle=' . $article['idArticle'] . '">' . $article['artTitle'] . '</a></h5>';
-        $contenu.='<p class="card-text text-justify">'.$article['content'].'</p>';
-        $contenu.='<p class="card-text text-justify">'.$article['dateArt'].'</p>';
-        $contenu.='<p class="card-text text-justify">'.$article['fNameAuteurArt'].'</p>';
-        $contenu.='<p class="card-text text-justify">'.$article['lNameAuteurArt'].'</p>';
-        $contenu.='<img src="img/'.$article['photoArticle'].'" alt=" class="cardImage" height="500em" width="500em">;</p>';
-     $contenu .=  '<a href="'.$article["linkArticle"].'" class="btn btn-outline-info" target="_blank">Lire</a>';
-      $contenu .= '</div>';
-    $contenu .= '</div>';
-  
+    // On affiche la card via la variable $contenu  
+        $contenu.= '<h2 class=" font-weight-bold text-uppercase mb-4" href="article.php?idArticle=' . $article['idArticle'] . ' text-center">' . $article['artTitle'] . '</a></h2>';
+        $contenu.= '<div class="card card-cascade wider reverse">';
+        $contenu.= '<div class="view view-cascade overlay">';
+            $contenu.= '<img class="card-img-top" src="img/'.$article['photoArticle'].'" alt="Card image cap"><a href="#!"><div class="mask rgba-white-slight"></a></div>';
+             $contenu.= '<p class="card-text mt-3" .>'.$article['content'].'</p>';
+             $contenu.= '<div class="card-body card-body-cascade text-center">';
+             $contenu.='<p class="card-text text-justify">'.$article['dateArt'].'</p>';
+             $contenu.='<p class="card-text text-justify">'.$article['fNameAuteurArt'].'</p>';
+             $contenu.='<p class="card-text text-justify">'.$article['lNameAuteurArt'].'</p>';
+      $contenu.= '</div>';$contenu .=  '<a href="'.$article["linkArticle"].'" class="btn btn-outline-info" target="_blank">Lire</a>';
+  $contenu.= '</div>';
     
-    
+
 }
 ?>
 
@@ -31,7 +30,6 @@ while ($article = $resultat->fetch(PDO::FETCH_ASSOC))
     <div class="row">
         <?= $contenu; ?>
     </div>
-    <!--  Fin row -->
 </section>
 
 <?php require_once 'include/footer.inc.php' ?>  

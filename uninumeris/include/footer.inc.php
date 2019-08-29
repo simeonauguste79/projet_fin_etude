@@ -3,9 +3,10 @@
 </main>
 <!--Fin div main container-->
 <!-- Footer -->
+
 <footer class="page-footer font-small mdb-color lighten-3 pt-4">
   <!-- Footer Links -->
-  <div class="container text-center text-md-left ">
+  <div class="container-fluid text-center text-md-left ">
     <!-- Grid row -->
     <div class="row">
       <!-- Grid column -->
@@ -21,7 +22,7 @@
       <!-- Grid column -->
       <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mb-4"><span>À propos de</span></h5>
+        <h5 class="font-weight-bold text-uppercase mb-4"><span><a href="presentation.php">À propos de</a> </span></h5>
         <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <ul class="list-unstyled">
           <li>
@@ -79,24 +80,25 @@
       <!-- Grid column -->
       <hr class="clearfix w-100 d-md-none">
       <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+      <div class=" col-md-2 col-lg-2 text mx-auto my-4">
         <!-- Social buttons -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Suivez-moi</h5>
-        <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <h5 class="font-weight-bold text-uppercase mb-4"> <a href="contact.php">Suivez-moi</a></h5>
+        <hr class="bg-primary accent-2 mb- mt-0 d-inline-block mx-auto" style="width: 60px;">
         <!-- Facebook -->
-        <ul class="nav_footer mx-auto mb-4 ">
+        <ul class="nav_footer mx-auto mb-4 mb-3">
           <!-- Facebook -->
-          <li><a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f hover"></i></a></li>
+          <li><a href="https://www.facebook.com/simeonauguste.ba.3" target="_blank"><i class="fab fa-facebook-f hover"></i></a></li>
           <!-- Linkedin -->
-          <li><a class="px-2 fa-sm li-ic"><i class="fab fa-linkedin-in hover"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/simeon-auguste-ba-615aba14b/" target="_blank"><i class="fab fa-linkedin-in hover"></i></a></li>
           <!-- tweter -->
-          <li><a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter hover"></i></a></li>
+          <li><a href="https://twitter.com/DevBasim" target="_blank"><i class="fab fa-twitter hover"></i></a></li>
         </ul>
       </div>
     </div>
   </div>
   <!-- Footer Links -->
   <!-- Copyright -->
+ 
   <div class="row">
     <div class="gif col-md-4 offset-md-5">
       <img src="img/gif/giphy.gif" alt="giphy">
@@ -108,6 +110,8 @@
   </div>
 </footer>
 <!-- Footer -->
+
+
 </div>
 <!--Fin div container-fluid-->
 <!-- Lien CDN JS -->

@@ -25,7 +25,7 @@ while($competences = $resultat->fetch(PDO::FETCH_ASSOC))
   
   $contenu.='<div class="space "></div>';
      $contenu.='<div class="col-md-3 service">';
-      $contenu.='<div class="text text-center mt-4"><i class="'.$competences['photo_competence'].'"></i></div>';
+      $contenu.='<div class="text text-center mt-4"><i class="'.$competences['photo_competence'].' hover"></i></div>';
       $contenu.='<h5 class="card-title text-center">'.$competences['title_competence'].'</h5>';
       $contenu.='<br><p class="card-text text-light text text-center">'.$competences['content_competence'].'</p>';
      $contenu.='</div>';
