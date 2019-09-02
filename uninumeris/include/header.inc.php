@@ -64,10 +64,7 @@
         <a class="nav-link" href="formation.php">Formation <span class="sr-only">(current)</span></a>
         <!-- <a class="nav-link" href="<?= URL ?>formation.php">Formation <span class="sr-only">(current)</span></a> -->
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="competence.php">Compétence</a>
-        <!-- <a class="nav-link" href="<?= URL ?>competence.php">Compétence</a> -->
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="experience.php">Expérience</a>
         <!-- <a class="nav-link" href="<?= URL ?>experience.php">Expérience</a> -->
@@ -81,16 +78,20 @@
         <!-- <a class="nav-link" href="<?= URL ?>article.php">article</a> -->
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="skill_bar.php">Progression</a>
+        <a class="nav-link" href="skill_bar.php">Competence et Progression</a>
         <!-- <a class="nav-link" href="<?= URL ?>article.php">article</a> -->
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contact.php">Contact</a>
         <!-- <a class="nav-link" href="<?= URL ?>contact.php">Contact</a> -->
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="beat.php">Beat</a>
+        <!-- <a class="nav-link" href="<?= URL ?>beat.php">Beat</a> -->
+      </li>
         <!-- <a class="nav-link" href="<?= URL ?>uploader_fichier.php">Telecharger</a> -->
       <li class="nav-item">
-        <a class="nav-link" href="presentation.php">Réalisation</a>
+        <a class="nav-link" href="realisations.php">Réalisation</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

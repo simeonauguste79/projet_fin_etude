@@ -17,28 +17,19 @@ $(function () {
 
 //  Video
 
-// SMOOTH SCROLL
+// TOOLTIP
 
-
-{/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-    <script>
-
-        $(document).ready(function() {
-
-            $('.js-scrollTo').on('click', function () { // Au clic sur un élément
-
-                var page = $(this).attr('href'); // Page cible
-
-                var speed = 750; // Durée de l'animation (en ms)
-
-                $('html, body').animate({ scrollTop: $(page).offset().top }, speed); // Go
-
-                return false;
-
-            });
-
-        });
-        
-</script> */}
+$(function () { 
+    $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'}).tooltip('show');
+  });  
+  
+  // $( window ).scroll(function() {   
+   // if($( window ).scrollTop() > 10){  // scroll down abit and get the action   
+    $(".skillbar").each(function(){
+      each_bar_width = $(this).attr('aria-valuenow');
+      $(this).width(each_bar_width + '%');
+    });
+         
+   //  }  
+  // });
 

@@ -21,7 +21,9 @@
       <hr class="clearfix w-100 d-md-none">
       <!-- Grid column -->
       <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-        <!-- Links -->
+        
+      
+      <!-- Links -->
         <h5 class="font-weight-bold text-uppercase mb-4"><span><a href="presentation.php">À propos de</a> </span></h5>
         <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <ul class="list-unstyled">
@@ -48,6 +50,10 @@
         </ul>
       </div>
       <!-- Grid column -->
+
+
+
+
       <hr class="clearfix w-100 d-md-none">
       <!-- Grid column -->
       <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
@@ -55,30 +61,81 @@
         <h5 class="font-weight-bold text-uppercase mb-4">Adresse</h5>
         <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <ul class="list-unstyled">
+          
+        
+        <!--Adresse-->
+        <ul>
           <li>
-            <div class="row">
-              <div><i class="fas fa-home text-light hover"></i> </div>
-              <div class="col-md-6">
-                <p class="adress text-light">2 rue de Brévannes 94370
-                  <br>Sucy En Brie 
-                </p>
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="">
+                  <img src="img/icone/home.png" height="20%" width="20%" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="">
+                    <h5 class="title">2, rue de Brévannes <br> 94370 Sucy En Brie</h5>
+                  </div>
+                </div>
               </div>
             </div>
-          </li>
+          </ul>
+          <!--Fin adresse-->
+          
+          <!--Email-->
+        <ul>
           <li>
-            <p>
-              <i class="fas fa-envelope mr-3 text-light"></i> <span class="text-light">ba.simeon@lepoles.com</span>
-            </p>
-          </li>
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="">
+                  <img src="img/icone/email.png" height="20%" width="20%" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="">
+                    <h5 class="title">ba.simeon@lepoles.com</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+          <!--Fin email-->
+         
+          <!--Telephone-->
+        <ul>
           <li>
-            <p>
-              <i class="fas fa-phone mr-3 text-light"></i> <span class="text-light">0610266544</span>
-            </p>
-          </li>
-        </ul>
-      </div>
+            <div class="row mt-3">
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="">
+                    <img src="img/icone/call.png"  height="20%" width="20%" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="">
+                  <div class="">
+                    <h5 class="title">0610266544</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
+          <!--Fin telephone-->
+        </div>
+        <!--Fin div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1-->
       <!-- Grid column -->
+
+
       <hr class="clearfix w-100 d-md-none">
+
+      
       <!-- Grid column -->
       <div class=" col-md-2 col-lg-2 text mx-auto my-4">
         <!-- Social buttons -->
@@ -87,11 +144,13 @@
         <!-- Facebook -->
         <ul class="nav_footer mx-auto mb-4 mb-3">
           <!-- Facebook -->
-          <li><a href="https://www.facebook.com/simeonauguste.ba.3" target="_blank"><i class="fab fa-facebook-f hover"></i></a></li>
+          <li><a href="https://www.facebook.com/simeonauguste.ba.3" target="_blank"><img class="reseaux rounded-pill hover" src="img/icone/facebook.png" height="50px" width="52px" alt=""></a></li>
           <!-- Linkedin -->
-          <li><a href="https://www.linkedin.com/in/simeon-auguste-ba-615aba14b/" target="_blank"><i class="fab fa-linkedin-in hover"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/simeon-auguste-ba-615aba14b/" target="_blank"><img class="reseaux rounded-pill hover" src="img/icone/linkedin.png" height="50px" width="52px" alt=""></a></li>
           <!-- tweter -->
-          <li><a href="https://twitter.com/DevBasim" target="_blank"><i class="fab fa-twitter hover"></i></a></li>
+          <li><a href="https://twitter.com/DevBasim" target="_blank"><img class="reseaux rounded-pill hover" src="img/icone/twitter.png" height="50px" width="52px" alt=""></a></li>
+          <!-- github-->
+          <li><a href="https://github.com/simeonauguste79" target="_blank"><img class="reseaux rounded-pill hover" src="img/icone/github.png" height="50px" width="52px" alt=""></a></li>
         </ul>
       </div>
     </div>
@@ -99,14 +158,16 @@
   <!-- Footer Links -->
   <!-- Copyright -->
  
-  <div class="row">
-    <div class="gif col-md-4 offset-md-5">
-      <img src="img/gif/giphy.gif" alt="giphy">
+  <div class="row col-md-5 offset-3">
+
+    <div class="gif">
+      
+      <img src="img/gif/giphy.gif" border=0 width=165 height=110 alt="giphy">
     </div>
   </div>
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3"> <a href="index.php">© 2019 Copyright:</a>
-    <a href="index.php">Powered By @Yvann_Murphy </a>
+  <div class="footer-copyright text-center py-3">
+  <a href="index.php">© 2019 Copyright: Powered By @Yvann_Murphy </a>
   </div>
 </footer>
 <!-- Footer -->

@@ -3,19 +3,7 @@ require_once("include/init.inc.php");
 ?>
     <!--  -->
     <hr class="style1">
-    <!-- hr-------------------------------------------------------------------------------------------------- -->
-    <section  class="row">
-            <h6 class="font-weight-bold text-uppercase"><a href="beat.php">Vidéo</a></h6>
-            <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <div class="container">
-
-
-                <!-- taille en 16/9 -->
-                    <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0vG0s7yl2Lk" width="300" height="150"></iframe></div>
-
-            </div>
-    </section>
-        <!--hr-->
+    
         <hr class="style1">
         <section class="article1">
             <h6 class="text">SLIDERS</h6>
@@ -65,7 +53,7 @@ require_once("include/init.inc.php");
                 <!-- Card content -->
                 <div class="card-body card-body-cascade text-center">
                     <!-- Title -->
-                    <h4 class="card-title"><strong>3 astuces pour comprendre les grands courants littéraires du XVIe siècle au XXe siècle</strong></h4>
+                    <h5 class="card-title"><strong>3 astuces pour comprendre les grands courants littéraires du XVIe siècle au XXe siècle</strong></h5>
                     <!-- Subtitle -->
                     <h6 class="font-weight-bold indigo-text py-2">Historique</h6>
                     <!-- Text -->
@@ -110,10 +98,10 @@ require_once("include/init.inc.php");
             <section>
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="card">
+                        <div class="card card-inverse card-primary text-center">
                             <img class="card-img-top" src="img/litt/180px-da_vinci_vitruve_luc_viatour_Humanisme_de_la_Renaissance.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #1</h4>
+                                <h6 class="card-title">This is Card #1</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -124,7 +112,7 @@ require_once("include/init.inc.php");
                         <div class="card card-inverse card-primary text-center">
                             <img class="card-img-top" src="img/litt/9020_fabliaux.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #2</h4>
+                                <h6 class="card-title">This is Card #2</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -135,7 +123,7 @@ require_once("include/init.inc.php");
                         <div class="card card-inverse card-success text-center">
                             <img class="card-img-top" src="img/litt/004397081_rhétoriqueurs.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #3</h4>
+                                <h6 class="card-title">This is Card #3</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -146,7 +134,7 @@ require_once("include/init.inc.php");
                         <div class="card card-inverse card-info text-center">
                             <img class="card-img-top" src="img/litt/9782852035201-475x500-1.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #4</h4>
+                                <h6 class="card-title">This is Card #4</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -159,10 +147,10 @@ require_once("include/init.inc.php");
 
                 <!-- <div class="row"> -->
                     <div class="col-md-3 mt-3">
-                        <div class="card">
+                        <div class="card card-inverse card-primary text-center">
                             <img class="card-img-top" src="img/litt/Christine_de_Pizan Medieval.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #1</h4>
+                                <h6 class="card-title">This is Card #1</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -173,7 +161,7 @@ require_once("include/init.inc.php");
                         <div class="card card-inverse card-primary text-center">
                             <img class="card-img-top" src="img/litt/Codex_Manesse_071v_Kristan_von_Hamle_roman_courtois.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #2</h4>
+                                <h6 class="card-title">This is Card #2</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -184,7 +172,7 @@ require_once("include/init.inc.php");
                         <div class="card card-inverse card-success text-center">
                             <img class="card-img-top" src="img/litt/de_la_chanson_au_geste_au_roman.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #3</h4>
+                                <h6 class="card-title">This is Card #3</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -195,7 +183,7 @@ require_once("include/init.inc.php");
                         <div class="card card-inverse card-info text-center">
                             <img class="card-img-top" src="img/litt/Dracula-et-autres-ecrits-vampiriques_carrousel_La_Pléiade.jpg" alt="Card image cap">
                             <div class="card-block">
-                                <h4 class="card-title">This is Card #4</h4>
+                                <h6 class="card-title">This is Card #4</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="http://v4-alpha.getbootstrap.com/components/card/" class="btn btn-primary">Learn More</a>
                             </div>
@@ -206,23 +194,7 @@ require_once("include/init.inc.php");
             </section>
             <!-- Fin *******************************************************************************************************************************-->
     <hr class="style1">
-    <!-- hr-->
-    <section id="section-music">
-        <h6 class="font-weight-bold text-uppercase"><a href="beat.php">Musique</a></h6>
-        <hr class="bg-primary accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <div class="row rounde-5">
-            <div class="musique col-md-4 offset-2 mt-3">
-                <audio controls="controls" src="audio/Come_Away/01 Bright Soul.mp3" loop="loop" autoplay="autoplay" class="mt-5 ml-5²">
-                    <source src="magics.mp3">
-                    <source src="magics.ogg">
-                </audio>
-            </div>
-            <!--Shazam-->
-            <div class="shazam col-md-6">
-                <img class="shazam col rounded-circle" src="img/gif/logo-2-2.gif" alt="">
-            </div>
-        </div>
-    </section>
+    
     <hr class="style1">
     <!-- hr-->
 
