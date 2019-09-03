@@ -8,7 +8,7 @@
 /************************************* REGLAGES GENEREAUX *************************************/
 body 
 {
-  background: url(../img/Présentation1.jpg) no-repeat;
+  background: url(../img/58628-Scotland-Falkirk_Wheel-reflection-architecture-night-UK.jpg) no-repeat;
   background-attachment: fixed;
     background-size: cover;
 }
@@ -82,4 +82,55 @@ body
   .form-data
   {
     margin-top: 250px;
+  }
+/********************************************************************************************************************/
+/**********************************************Paralax***************************************************************/
+
+  header 
+  {
+    background: url(../img/f2da1c598e2ff9bc29b229773a189d33d38e0252.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  h1 .monAdmin
+  {
+    text-align: center;
+    color: #1b99d8;
+    font-family: lobster, sans-serif;
+    font-size: 13rem;
+    margin: 0;
+    position: relative;
+    top: 25rem;
+    letter-spacing: 5px;
+    width: 100%;
+  }
+
+  /* SECTION */
+
+  .image1
+  {
+    background: url(../img/realisations/Les\ Etats\ Généraux\ en\ Civ.png);
+    height: 108rem;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  .box
+  {
+    position: relative;
+    top: 50;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 82rem;
+    height: 45rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.03);
+    color: white;
+    line-height: 1.5rem;
+    font-family: sans-serif;
+    font-weight: 100%;
+    padding: 3.5rem;
   }

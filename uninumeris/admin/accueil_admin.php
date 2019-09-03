@@ -22,12 +22,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
     <!--google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <!-- Lien CDN bootswatch -->
+    <script type="text/javascript" src="/js/index.js"></script>
+    <!-- Lien CDN bootswatch -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous">
     <!-- Lien CSS personel -->
     <link rel="stylesheet" href="../css/style_admin.css">
     <title>siteDeFinDeFormation</title>
 </head>
 <body>  
+<nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+
+</nav>
     <!--Debut div container-fluid-->
     <div class="container-fluid">
         
@@ -91,6 +97,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
 </div></div><!--Fin di container-->
     
 </div><!--Fin di container fluid-->
+
 
 
 <!-- Lien CDN JS -->
