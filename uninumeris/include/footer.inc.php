@@ -158,12 +158,14 @@
   <!-- Footer Links -->
   <!-- Copyright -->
  
-  <div class="row col-md-5 offset-3">
+  <div class="row">
 
-    <div class="gif">
+      <div class="gif mx-auto">
       
-      <img src="img/gif/giphy.gif" border=0 width=165 height=110 alt="giphy">
-    </div>
+        <img src="img/gif/giphy.gif" alt="giphy" >
+
+      </div>
+
   </div>
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">

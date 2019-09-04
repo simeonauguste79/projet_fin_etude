@@ -8,7 +8,7 @@
 /************************************* REGLAGES GENEREAUX *************************************/
 body 
 {
-  background: url(../img/58628-Scotland-Falkirk_Wheel-reflection-architecture-night-UK.jpg) no-repeat;
+  background: url(../img/038f3d88f4c60db42d6d158966637376.jpg) no-repeat;
   background-attachment: fixed;
     background-size: cover;
 }
@@ -88,14 +88,14 @@ body
 
   header 
   {
-    background: url(../img/f2da1c598e2ff9bc29b229773a189d33d38e0252.jpg);
+    background: url(../038f3d88f4c60db42d6d158966637376.jpg);
     height: 100vh;
     width: 100%;
     background-size: cover;
     background-position: center;
   }
 
-  h1 .monAdmin
+  h1 
   {
     text-align: center;
     color: #1b99d8;
@@ -112,7 +112,7 @@ body
 
   .image1
   {
-    background: url(../img/realisations/Les\ Etats\ Généraux\ en\ Civ.png);
+    background: url(img/computers.jpg);
     height: 108rem;
     background-position: center;
     background-size: cover;
@@ -133,4 +133,55 @@ body
     font-family: sans-serif;
     font-weight: 100%;
     padding: 3.5rem;
+  }
+
+  h2
+  {
+    font-size: 4rem;
+    font-family: lato sans-serif;
+    line-height: 1.25rem;
+  }
+
+  .date
+  {
+    font-size: 2rem;
+    opacity: 0.7;
+  }
+
+  .text
+  {
+    font-size: 1.8rem;
+    letter-spacing: 0.15rem;
+    margin: 0 3rem;
+    line-height: 2.5rem;
+  }
+
+  .learn 
+  {
+    background: transparent;
+    margin-top: 5rem;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 2.5rem;
+    font-weight: 500;
+    width: 25rem;
+    transition: all 0.4s ease-in;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+  
+  }
+
+  .learn:hover
+  {
+    background: rgba(255,255,255,0.9);
+    color:black; 
+  }
+
+  .image1
+  {
+    background: url(../img/realisations/Les\ Etats\ Généraux\ en\ Civ.png);
+    height: 108rem;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
   }

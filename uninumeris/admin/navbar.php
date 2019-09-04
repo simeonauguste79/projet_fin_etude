@@ -33,18 +33,20 @@
 </nav>
 </header>
 
-<div class="container-fluid">
+<div class="container">
 
-<h1 id="monAdmin">ADMIN</h1>
+<h1>ADMIN</h1>
 
 <section>
   <div class="image1">
       <div class="box box1">
           <h2>Lorem ipsum dolor sit amet.</h2>
           <p class="date">03/09/2019</p>
+          <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptas aliquid, incidunt, laudantium accusantium quos repudiandae soluta commodi enim deserunt ipsam tempora eaque expedita reprehenderit ea repellat dolorem illo maxime voluptates. Hic nulla architecto repellendus iusto qui quas quibusdam accusantium aliquid, suscipit sit assumenda quasi quis officiis illo ipsum dolores consequatur sunt esse quia, fuga tenetur. Amet aspernatur minima aliquid dolor natus delectus ab, quidem provident eius omnis rem, laborum porro reiciendis magni consequatur necessitatibus impedit sapiente quo.
+
+          </div> 
       </div> 
-      <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptas aliquid, incidunt, laudantium accusantium quos repudiandae soluta commodi enim deserunt ipsam tempora eaque expedita reprehenderit ea repellat dolorem illo maxime voluptates. Hic nulla architecto repellendus iusto qui quas quibusdam accusantium aliquid, suscipit sit assumenda quasi quis officiis illo ipsum dolores consequatur sunt esse quia, fuga tenetur. Amet aspernatur minima aliquid dolor natus delectus ab, quidem provident eius omnis rem, laborum porro reiciendis magni consequatur necessitatibus impedit sapiente quo.</div> 
-  </div>
+    </div>
   <button class="learn">LEARN MORE</button>
 </section>
 
@@ -54,9 +56,9 @@
       <div class="box box2">
           <h2>Lorem ipsum dolor sit amet.</h2>
           <p class="date">03/09/2019</p>
+          <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptas aliquid, incidunt, laudantium accusantium quos repudiandae soluta commodi enim deserunt ipsam tempora eaque expedita reprehenderit ea repellat dolorem illo maxime voluptates. Hic nulla architecto repellendus iusto qui quas quibusdam accusantium aliquid, suscipit sit assumenda quasi quis officiis illo ipsum dolores consequatur sunt esse quia, fuga tenetur. Amet aspernatur minima aliquid dolor natus delectus ab, quidem provident eius omnis rem, laborum porro reiciendis magni consequatur necessitatibus impedit sapiente quo.</div> 
+         </div>
       </div> 
-      <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptas aliquid, incidunt, laudantium accusantium quos repudiandae soluta commodi enim deserunt ipsam tempora eaque expedita reprehenderit ea repellat dolorem illo maxime voluptates. Hic nulla architecto repellendus iusto qui quas quibusdam accusantium aliquid, suscipit sit assumenda quasi quis officiis illo ipsum dolores consequatur sunt esse quia, fuga tenetur. Amet aspernatur minima aliquid dolor natus delectus ab, quidem provident eius omnis rem, laborum porro reiciendis magni consequatur necessitatibus impedit sapiente quo.</div> 
-  </div>
   <button class="learn">LEARN MORE</button>
 </section>
 
@@ -66,9 +68,9 @@
       <div class="box box3">
           <h2>Lorem ipsum dolor sit amet.</h2>
           <p class="date">03/09/2019</p>
+          <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptas aliquid, incidunt, laudantium accusantium quos repudiandae soluta commodi enim deserunt ipsam tempora eaque expedita reprehenderit ea repellat dolorem illo maxime voluptates. Hic nulla architecto repellendus iusto qui quas quibusdam accusantium aliquid, suscipit sit assumenda quasi quis officiis illo ipsum dolores consequatur sunt esse quia, fuga tenetur. Amet aspernatur minima aliquid dolor natus delectus ab, quidem provident eius omnis rem, laborum porro reiciendis magni consequatur necessitatibus impedit sapiente quo.</div> 
+      </div>
       </div> 
-      <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus voluptas aliquid, incidunt, laudantium accusantium quos repudiandae soluta commodi enim deserunt ipsam tempora eaque expedita reprehenderit ea repellat dolorem illo maxime voluptates. Hic nulla architecto repellendus iusto qui quas quibusdam accusantium aliquid, suscipit sit assumenda quasi quis officiis illo ipsum dolores consequatur sunt esse quia, fuga tenetur. Amet aspernatur minima aliquid dolor natus delectus ab, quidem provident eius omnis rem, laborum porro reiciendis magni consequatur necessitatibus impedit sapiente quo.</div> 
-  </div>
   <button class="learn">LEARN MORE</button>
 </section>
 </div>
