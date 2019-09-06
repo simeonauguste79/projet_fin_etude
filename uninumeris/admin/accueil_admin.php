@@ -1,12 +1,11 @@
 <?php
 require_once("../include/init.inc.php");
 
-if (isset($_GET['action']) && $_GET['action'] == 'deconnexion') {
+if (isset($_GET['action']) && $_GET['action'] == 'deconnexion')
+ {
     session_destroy();
     header('Location:../index.php');
-    echo "<pre>";
-    var_dump($admin);
-    echo "</pre>";
+    echo "<pre>";var_dump($admin);echo "</pre>";
 }
 ?> 
 

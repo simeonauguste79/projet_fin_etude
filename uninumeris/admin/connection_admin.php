@@ -8,11 +8,12 @@ $emailAdminError = '';
 $msg_valid = "";
 
 
+
 // Petit 1 je recupere les information de la table Admin
 $req = $bdd->query("SELECT * FROM admin");
 $admin = $req->fetch(PDO::FETCH_ASSOC);
 
-echo '<pre>';   print_r($_POST);  echo '</pre>'; 
+// echo '<pre>';print_r($_POST);echo '</pre>'; 
 /*2 Je verifie mets champs
 => firstNameAdmin
 => lastNameAdmin
@@ -46,6 +47,7 @@ if ($_POST) {
     if (empty($firstNameAdminError) && empty($lastNameAdminError) && empty($emailAdminError) && empty($pwAdminError) ) {
         header('Location:accueil_admin.php');
     }
+    
 
   
         
@@ -107,9 +109,10 @@ if ($_POST) {
   </div>
   <!-- le bouton submit -->
   <!-- <a  >Connexion</a> -->
-  <div class="form col-md-4 offset-md-2">
+  <div class="form col-md-8">
   
-    <input type="submit" class="btn btn-light rounded-pill hover text-center m-3 bordered-primary bg-none" value="connexion">
+    <!-- <input type="submit " class="btn btn-light rounded-pill hover text-center m-3 bordered-primary mx-auto bg-none" value="connexion"> -->
+    <button type="submit" class="btn btn-light rounded-pill hover text-center m-3 bordered-primary mx-auto bg-none">Sign in</button>
   </div>
 </form>
 

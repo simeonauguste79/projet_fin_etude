@@ -97,7 +97,19 @@ div.sim
     margin-left: 21%;
 }
 
-
+/* CONNEXION ADMIN HACHAGE BOUTON DE CONNEXION*/
+a#connect
+{
+	background: #030444;
+	color: #030444 !important;
+	cursor: default;
+	text-decoration: none;
+	
+}
+a#connect:hover
+{
+	background: #030444;	
+}
 /**************************************reseaux sociaux footer***************************************************************/
 /* reseaux sociaux footer1_ Redimensionner chacun des logos en talle 60px(X)60px2_Reduire en forme circulaire avec le border-radius 3_ajouter une bordure en RGB4_appliquer le code du passage de la souris*/
 footer ul li .face

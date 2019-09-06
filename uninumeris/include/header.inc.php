@@ -43,7 +43,7 @@
 
             <div class="row">
               
-                  <p class="s-titre text-center text-light col-9 offset-3"><span class="cols-sx-3">Développeur-Integrateur Web</span><a class="adm text-light" href="admin/connection_admin.php">.</a> </p>
+                  <p class="s-titre text-center text-light col-9 offset-3"><span class="cols-sx-3">Développeur-Integrateur Web</span><a type="hidden" class="adm text-light" href="admin/connection_admin.php" id="connect">.</a> </p>
             </div>
             </div>
             <!-- fin div titre defilant -->

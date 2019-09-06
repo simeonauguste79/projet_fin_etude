@@ -59,7 +59,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
          $msgLinkArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre URL valide</span>';
      } // FIN if (empty($_POST['linkArticle'])
 // ********************************************************************************************************************
-     if (empty($_POST['photo'])) {
+     if (empty($_POST['photoArticle'])) {
          $msgPhotoArticleError .= '<span class="text-danger text-center"> ** Veuillez mettre image valide</span>';
     }  // FIN if (empty($_POST['photo'])
 
@@ -96,9 +96,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
 
     // SI VERIFIE => 
     // si Je n'ai pas de message d'erreur j'effectue l'insertion à ma BDD 
-     if (empty($msgArtTitleError || $msgLinkArticleError || $msgPhotoArticleError || $msgContentError || $msgArtTitleError || $msgFNameAuteurArtError || $msgLNameAuteurArtError || $msgEmailAuteurArtError)) {
-        
-        
+     if (empty($msgArtTitleError) && empty($msgLinkArticleError) && empty($msgPhotoArticleError )&& empty($msgContentError) && empty($msgArtTitleError) && empty($msgFNameAuteurArtError) && empty($msgLNameAuteurArtError) && empty($msgEmailAuteurArtError)) {  
         
     // a) assainissement des saisies de l'intertnaute
      foreach ($_POST as $indice => $valeur) {$_POST[$indice] = htmlspecialchars($valeur, ENT_QUOTES);} 
@@ -123,9 +121,8 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
          $requet->bindParam(':dateArt', $_POST['dateArt']);
          $requet->bindParam(':fNameAuteurArt', $_POST['fNameAuteurArt']);
          $requet->bindParam(':lNameAuteurArt', $_POST['lNameAuteurArt']);
-         $requet->bindParam(':emailAuteurArt', $_POST['emailAuteurArt']);
+         $requet->bindParam(':photoArticle', $_POST['photoArticle']);
          $requet->bindParam(':linkArticle', $_POST['linkArticle']);
-        $requet->bindParam(':photoArticle', $_POST['photoArticle']);
         // J'éxecute l'insertion en BDD
          $requet->execute();
      } 
@@ -195,7 +192,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'modifier' && isset($_GET['id'])
                 <span class="text-success">Vous pouvez uploader une nouvelle photo si vous souhaitez la changer</span><br>
                 <img src="img/<?= $article['photoArticle'] ?>" alt="photo" class="card-img-top" name="photoArticle" value="<?php if(isset($_GET['action']) && $_GET['action'] == 'modifier' ){echo $modif['photoArticle'];}else{echo "";} ?>">
                 <?php endif; ?>
-                <input type="file" aria-describedby="" name="photoArticle">
+                <input type="file" name="photoArticle">
             <!--  -->
          
             <!--  -->
